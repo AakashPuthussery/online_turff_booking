@@ -1,0 +1,45 @@
+{#{% extends "ADMIN/admin home.html" %}#}
+{#{% block body %}#}
+{% extends "Props/Prop home.html" %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get"  name="form1" id="form1">
+<table width="805" height="262" border="1"class="table table-active">
+  <tr>
+    <th width="11" scope="col">#</th>
+    <th width="234" scope="col">TOURNAMENT NAME</th>
+    <th width="151" scope="col">COURT NAME</th>
+    <th width="154" scope="col">USER NAME</th>
+    <th width="154" scope="col">TEAM NAME</th>
+    <th width="154" scope="col">LOGO</th>
+    <th width="134" scope="col">REQUEST DATE</th>
+    <th width="81" scope="col">&nbsp;</th>
+    <th width="81" scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>&nbsp;{{ loop.index }}</td>
+    <td>&nbsp;{{ i['tournament_name'] }}</td>
+    <td>&nbsp;{{ i['court_name'] }}</td>
+    <td>&nbsp;{{ i['user_name'] }}</td>
+    <td>&nbsp;{{ i['team_name'] }}</td>
+    <td><img src="{{ i['logo'] }}" width="100" height="100"/> </td>
+    <td>&nbsp;{{ i['req_date'] }}</td>
+    <td><a href="/approve_tournament_req/{{ i['tournament_req_id'] }}">APPROVE</a><br>
+    <a href="/reject_tournament_req/{{ i['tournament_req_id'] }}">REJECT</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+
+{% endblock %}

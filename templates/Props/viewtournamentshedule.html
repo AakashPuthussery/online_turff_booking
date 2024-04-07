@@ -1,0 +1,51 @@
+{#{% extends "ADMIN/admin home.html" %}#}
+{#{% block body %}#}
+{% extends "Props/Prop home.html" %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form action="" method="get"  name="form1" id="form1">
+<table width="696" height="305" border="1" class="table table-active">
+  <tr>
+    <th width="32" scope="col">#</th>
+{#    <th width="22" scope="col">TOURNAMENT NAME</th>#}
+    <th width="22" scope="col">GAME TYPE</th>
+    <th width="22" scope="col">MATCH DATE</th>
+    <th width="22" scope="col">MATCH TIME</th>
+    <th width="22" scope="col">DURATION</th>
+    <th width="20" scope="col">TEAM 1</th>
+    <th width="20" scope="col">TEAM 2</th>
+    <th width="22" scope="col">BREAK</th>
+    <th width="22" scope="col">&nbsp;</th>
+    <th width="22" scope="col">&nbsp;</th>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+{#    <td>{{ i['tournament_name'] }}</td>#}
+    <td>{{ i['game_type'] }}</td>
+    <td>&nbsp;{{ i['match_date'] }}</td>
+    <td>&nbsp;{{ i['match_time'] }}</td>
+    <td>{{ i['duration'] }}</td>
+    <td>{{ i['team1'] }}</td>
+    <td>{{ i['team2'] }}</td>
+    <td>{{ i['break'] }}</td>
+    <td><a href="/update_schedule/{{ i['tournament_schedule_id'] }}">UPDATE</a><BR>
+    <a href="/delete_schedule/{{ i['tournament_schedule_id'] }}">DELETE</a></td>
+    <td><a href="/add_winners/{{ i['tournament_id'] }}/{{ i['tournament_schedule_id'] }}/{{ i['team1'] }}/{{ i['team2'] }}/{{ i['game_type'] }}">ADD WINNERS</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</form>
+</body>
+</html>
+
+{% endblock %}

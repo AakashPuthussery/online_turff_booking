@@ -1,0 +1,157 @@
+
+
+{% extends "Props/Prop home.html" %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="">
+  <table width="200" border="1" class="table table-hover">
+
+    <tr>
+      <th scope="row">GAME TYPE</th>
+      <td><label for="select"></label>
+        <select name="select" id="select">
+          <option>--select--</option>
+          <option {% if "Semi Finals" ==aa['game_type'] %} selected {% endif %}>Semi Finals</option>
+          <option {% if "Finals"==aa['game_type'] %}selected {% endif %}>Finals</option>
+      </select></td>
+    </tr>
+    <tr>
+      <th scope="row">DATE</th>
+      <td><label for="textfield"></label>
+      <input type="date" name="textfield" id="textfield" value="{{ aa['match_date'] }}" required/></td>
+    </tr>
+    <tr>
+      <th scope="row">TIME</th>
+      <td><label for="textfield2"></label>
+      <input type="time" name="textfield2" id="textfield2" value="{{ aa['match_time'] }}" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">DURATION</th>
+      <td><label for="textfield2"></label>
+      <input type="text" name="textfield4" id="textfield2" value="{{ aa['duration'] }}" required /></td>
+    </tr>
+    <tr>
+      <th scope="row">TEAM 1</th>
+      <td><label for="select2">
+      <select name="select2" id="select2">
+
+          {% for i in data %}
+            <option value="{{ i['team_name'] }}" {% if aa['team1']==i['team_name'] %} selected {% endif %}>{{ i['team_name'] }}</option>
+    {% endfor %}
+      {% if data1 %}
+            <option>--select--</option>
+            <option>Team 1</option>
+            <option>Team 2</option>
+            <option>Team 3</option>
+            <option>Team 4</option>
+      {% endif %}
+      </select></label></td>
+    </tr>
+    <tr>
+      <th scope="row">TEAM 2</th>
+      <td>
+      <select name="select3" id="select2">
+    {% for i in data %}
+            <option value="{{ i['team_name'] }}" {% if aa['team2']==i['team_name'] %} selected {% endif %}>{{ i['team_name'] }}</option>
+    {% endfor %}
+     {% if data1 %}
+            <option>--select--</option>
+            <option>Team 1</option>
+            <option>Team 2</option>
+            <option>Team 3</option>
+            <option>Team 4</option>
+     {% endif %}
+  </select></td>
+    </tr>
+    <tr>
+      <th scope="row">BREAK</th>
+      <td><label for="textfield3"></label>
+      <input type="text" name="textfield3" id="textfield3" value="{{ aa['break'] }}" required /></td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="UPDATE" /></th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends "ADMIN/admin home.html" %}#}
+{#{% block body %}#}
+{#{% extends "Props/Prop home.html" %}#}
+{#{% block body %}#}
+{##}
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form action="" method="post" name="form1" id="form1">#}
+{#<table width="496" height="481" border="1">#}
+{#  <tr>#}
+{#    <th width="214" scope="row">TOURNAMENT NAME</th>#}
+{#    <td width="266"><label for="textfield"></label>#}
+{#    <input type="text" name="textfield" id="textfield" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <th scope="row">TEAM NAME</th>#}
+{#    <td><label for="textfield2"></label>#}
+{#    <input type="text" name="textfield2" id="textfield2" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <th scope="row">MATCH DATE</th>#}
+{#    <td><label for="textfield3"></label>#}
+{#    <input type="Date" name="textfield3" id="textfield3" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <th scope="row">MATCH TIME</th>#}
+{#    <td><label for="textfield4"></label>#}
+{#    <input type="Time" name="textfield4" id="textfield4" /></td>#}
+{#  </tr>#}
+{#  <tr>#}
+{#    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Update" /></th>#}
+{#  </tr>#}
+{#</table>#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+{##}
+{#{% endblock %}#}
