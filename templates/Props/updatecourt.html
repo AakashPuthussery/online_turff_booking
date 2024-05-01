@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body><form action="/pr_updatecourt/{{ data['court_id'] }}" method="post" enctype="multipart/form-data"> <table width="463" height="576" border="1">
+{#  <tr>#}
+{#    <th width="172" scope="row">PROP NAME</th>#}
+{#    <td width="275"><label for="textfield"></label>#}
+{#    <input type="text" name="textfield" id="textfield" /></td>#}
+{#  </tr>#}
+  <tr>
+    <th scope="row">COURT NAME</th>
+    <td><label for="textfield2"></label>
+    <input type="text" name="textfield2" id="textfield2" value="{{ data['court_name'] }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">PLACE</th>
+    <td><label for="textfield3"></label>
+    <input type="text" name="textfield3" id="textfield3" value="{{ data['place'] }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">COURT IMAGE</th>
+    <td><label for="fileField"></label>
+        <img src="{{ data['court_image'] }}" width="100" height="100">
+    <input type="file" name="fileField" id="fileField" value="{{ data['court_image'] }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">DISTRICT</th>
+    <td><label for="select1"></label>
+      <select name="select1" id="select" value="{{ data['district'] }}">
+      <option {% if data['district']=='Kasaragod' %} selected {% endif %}>Kasaragod</option>
+      <option {% if data['district']=='Kannur' %} selected {% endif %}>Kannur</option>
+      <option {% if data['district']=='Kozhikod' %} selected {% endif %}>Kozhikod</option>
+      <option {% if data['district']=='Wayanad' %} selected {% endif %}>Wayanad</option>
+      <option {% if data['district']=='Malappuram' %} selected {% endif %}>Malappuram</option>
+      <option {% if data['district']=='Palakkad' %} selected {% endif %}>Palakkad</option>
+      <option {% if data['district']=='Thrissur' %} selected {% endif %}>Thrissur</option>
+      <option {% if data['district']=='Ernakulam' %} selected {% endif %}>Ernakulam</option>
+      <option {% if data['district']=='Idukki' %} selected {% endif %}>Idukki</option>
+      <option {% if data['district']=='Kottayam' %} selected {% endif %}>Kottayam</option>
+      <option {% if data['district']=='Alapuzha' %} selected {% endif %}>Alapuzha</option>
+      <option {% if data['district']=='Pathanamthitta' %} selected {% endif %}>Pathanamthitta</option>
+      <option {% if data['district']=='Kollam' %} selected {% endif %}>Kollam</option>
+      <option {% if data['district']=='Thiruvanathapuram' %} selected {% endif %}>Thiruvanathapuram</option>
+    </select></td>
+  </tr>
+<tr>
+    <th scope="row">STATUS</th>
+     <td><label for="select"></label>
+      <select name="select" id="select"value="{{ data['status'] }}">
+           <option {% if data['status']=='open' %} selected {% endif %}>Open</option>
+      <option {% if data['status']=='close' %} selected {% endif %}>Close</option>
+          </select></td>
+    </tr>
+  <tr>
+    <th scope="row">CONTACT NO</th>
+    <td><label for="textfield4"></label>
+    <input type="text" name="textfield4" id="textfield4" value="{{ data['contact_no'] }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">EMAIL</th>
+    <td><label for="textfield5"></label>
+    <input type="text" name="textfield5" id="textfield5" value="{{ data['email'] }}"/></td>
+  </tr>
+  <tr>
+    <th scope="row">LATITUDE</th>
+    <td><label for="textfield6"></label>
+    <input type="text" name="textfield6" id="textfield6"value="{{ data['latitude'] }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">LONGITUDE</th>
+    <td><label for="textfield7"></label>
+    <input type="text" name="textfield7" id="textfield7"value="{{ data['longtitude'] }}" /></td>
+  </tr>
+  <tr>
+    <th scope="row">FEE</th>
+    <td><label for="textfield8"></label>
+    <input type="text" name="textfield8" id="textfield8"value="{{ data['fee'] }}" /></td>
+  </tr>
+  <tr>
+    <th colspan="2" scope="row"><input type="submit" name="button" id="button" value="Update" /></th>
+  </tr>
+
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+{% extends "Props/Prop home.html" %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="700" height="528" border="5" class="table table-hover">
+  <tr>
+    <th width="63" scope="col">#</th>
+    <th width="237" scope="col">COURT NAME</th>
+    <th width="334" scope="col">ADDRESS</th>
+    <th width="300" scope="col">LOCATION</th>
+    <th width="107" scope="col">FEE</th>
+    <th width="107" scope="col">STATUS</th>
+    <th width="112" scope="col">COURT IMAGE</th>
+    <th width="112" scope="col">CONTACTS</th>
+    <th width="112" scope="col">&nbsp;</th>
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['court_name'] }}</td>
+      <td>Place: {{ i['place'] }}<br>
+    District: {{ i['district'] }}</td>
+       <td>Lattitude: {{ i['latitude'] }}<br>
+       &nbsp;Longitude: {{ i['longtitude'] }}</td>
+    <td>{{ i['fee'] }}</td>
+    <td>&nbsp;{{ i['status'] }}</td>
+       <td><img src=" {{ i['court_image'] }}"></td>
+       <td>Phone No: {{ i['contact_no'] }}<br>
+      &nbsp;Email: {{ i['email'] }}</td>
+
+    <td><p>&nbsp;</p>
+      <p><a href="/pr_updatecourt/{{ i['court_id'] }}">Update</a></p>
+      <p>&nbsp;</p>
+    <p><a href="/pr_deletecourt/{{ i['court_id'] }}">Delete</a></p></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
+{% endblock %}

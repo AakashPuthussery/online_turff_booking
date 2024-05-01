@@ -1,0 +1,45 @@
+{% extends "Props/Prop home.html" %}
+{% block body %}
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="1184" height="488" border="1">
+  <tr>
+    <th width="10" scope="col">#</th>
+    <th width="147" scope="col">TOURNAMENT NAME</th>
+    <th width="59" scope="col">COURT NAME</th>
+    <th width="69" scope="col">NO. OF TEAMS</th>
+    <th width="67" scope="col">START DATE</th>
+    <th width="70" scope="col">ENTRY FEE</th>
+    <th width="96" scope="col">WINNING PRIZE</th>
+    <th width="102" scope="col">DEADLINE</th>
+    <th width="107" scope="col">MAXIMUM TEAMS</th>
+    <th width="65" scope="col">&nbsp;</th>
+  </tr>
+     {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>&nbsp;{{ i['tournament_name'] }}</td>
+    <td>{{ i['court_name'] }}</td>
+    <td>{{ i['no_of_teams'] }}</td>
+    <td>&nbsp;{{ i['start_date'] }}</td>
+    <td>&nbsp;{{ i['entry_fee'] }}</td>
+    <td>&nbsp;{{ i['winning_prize'] }}</td>
+    <td>&nbsp;{{ i['deadline'] }}</td>
+    <td>&nbsp;{{ i['limit1'] }}</td>
+    <td><a href="/pr_UpdateTournament/{{ i['tournament_id'] }}">Edit</a><br>
+        <a href="/pr_delete/{{ i['tournament_id'] }}">delete</a></td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+
+{% endblock %}

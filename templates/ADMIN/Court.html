@@ -1,0 +1,45 @@
+{% extends "ADMIN/admin home.html" %}
+{% block body %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<table width="535" height="377" border="1"class="table table-bordered">
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">COURT NAME</th>
+    <th scope="col">ADDRESS</th>
+    <th scope="col">PROP NAME</th>
+    <th scope="col">FEE</th>
+    <th scope="col">STATUS</th>
+    <th scope="col">EMAIL</th>
+          <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+
+  </tr>
+    {% for i in data %}
+  <tr>
+    <td>{{ loop.index }}</td>
+    <td>{{ i['court_name'] }}</td>
+    <td>{{ i['place'] }}<br>{{ i['district']}}</td>
+    <td>&nbsp;{{ i['prop_name'] }}</td>
+      <td>{{ i['fee'] }}</td>
+
+      <td>{{ i['status'] }}</td>
+            <td>{{ i['email'] }}</td>
+
+    <td><a href="/adm_view_rating/{{ i['court_id'] }}">View rating</a> </td>
+    <td><a href="/adm_view_review/{{ i['court_id'] }}">View reviews</a> </td>
+      <td><a href="/adm_delete/{{ i['court_id'] }}">Delete court</a> </td>
+  </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+{% endblock %}
